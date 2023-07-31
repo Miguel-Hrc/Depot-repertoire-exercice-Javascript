@@ -1,4 +1,4 @@
-5let btn = document.querySelector('button');
+let btn = document.querySelector('button');
 btn.addEventListener('click', function (e) {
     var Input_1 = document.getElementById('first-name');
     var Input_2 = document.getElementById('last-name');
