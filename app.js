@@ -9,13 +9,13 @@ btn.addEventListener('click', function (e) {
         e.preventDefault();
          Error.style.display = "";
     }
-    if (Input_2.value == "" ){
+    if (Input_2.value == "" ) {
         let Error = document.getElementById('error-message');
         e.preventDefault();
          Error.style.display = "";
     }
 
-    if (Input_3.value == "" ){
+    if (Input_3.value == "" ) {
         let Error = document.getElementById('error-message');
         e.preventDefault();
          Error.style.display = "";
