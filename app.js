@@ -1,64 +1,64 @@
 let btn = document.querySelector('button');
 btn.addEventListener('click', function (e) {
-    var Input_1 = document.getElementById('first-name');
-    var Input_2 = document.getElementById('last-name');
-    var Input_3 = document.getElementById('message');
+    e.preventDefault();
+    var Input_prenom = document.getElementById('first-name');
+    var Input_nom = document.getElementById('last-name');
+    var Input_commentaire = document.getElementById('message');
 
-    if (Input_1.value == "" ) {
+    if (Input_prenom.value == "" || Input_nom.value == "" || Input_commentaire.value == "" ) {
         let Error = document.getElementById('error-message');
-        e.preventDefault();
          Error.style.display = "";
     }
 
-    if (Input_2.value == "" ) {
+    else if (Input_prenom.value && Input_nom.value && Input_commentaire.value !="" ) {
         let Error = document.getElementById('error-message');
-        e.preventDefault();
-         Error.style.display = "";
-    }
-
-    if (Input_3.value == "" ) {
-        let Error = document.getElementById('error-message');
-        e.preventDefault();
-         Error.style.display = "";
-    }
-
-    else if (Input_1.value && Input_2.value && Input_3.value != "" ) {
-        let Error = document.getElementById('error-message');
-        e.preventDefault();
         Error.style.display = "none"; 
 
         let comment_list = document.getElementById("comment-list");
         
-        var div1 = document.getElementById("block_commentaire");
-        var div1Clone = div1.cloneNode(false);
+        var block_commentaire = document.getElementById("block_commentaire");
+        var block_commentaireClone = block_commentaire.cloneNode(false);
         
         
-        var div2 = document.getElementById("block_Titre");
-        var div2Clone = div2.cloneNode(false);
+        var block_titre = document.getElementById("block_titre");
+        var block_titreClone = block_titre.cloneNode(false);
 
-        var titre = document.getElementById("Nom_Prenom");
-        var Clone = titre.cloneNode(false);
+        var nom_prenom = document.getElementById("nom_prenom");
+        var nom_prenomClone = nom_prenom.cloneNode(false);
         
-        var div3 = document.getElementById("commentaire");
-        var div3Clone = div3.cloneNode(false);
+        var commentaire = document.getElementById("commentaire");
+        var commentaireClone = commentaire.cloneNode(false);
           
-        let titreTexte = document.createTextNode(Input_1.value + " ");
-        let titreTexte2 = document.createTextNode(Input_2.value);          
-        let commentaireTexte = document.createTextNode(Input_3.value);                   
+        let nom = document.createTextNode(Input_prenom.value + " ");
+        let prenom = document.createTextNode(Input_nom.value);          
+        let commentaireTexte = document.createTextNode(Input_commentaire.value);                   
 
-    Clone.appendChild(titreTexte);
-    Clone.appendChild(titreTexte2);
-    div2Clone.appendChild(Clone);
-    div1Clone.appendChild(div2Clone);
-    comment_list.appendChild(div1Clone);
-    div2Clone.appendChild(div3Clone);
-    div3Clone.appendChild(commentaireTexte);
+    nom_prenomClone.appendChild(nom);
 
-    div1Clone.style.display = "";  
+    nom_prenomClone.appendChild(prenom);
+
+    block_titreClone.appendChild(nom_prenomClone);
+
+    block_commentaireClone.appendChild(block_titreClone);
+
+    comment_list.appendChild(block_commentaireClone);
+
+    block_titreClone.appendChild(commentaireClone);
+
+    commentaireClone.appendChild(commentaireTexte);
+
+    block_commentaireClone.style.display = "";  
+
 }
 });
-btn.addEventListener('click',function resetFields(){
+
+btn.addEventListener('click',function resetFields(e){
+    var Input_prenom = document.getElementById('first-name');
+    var Input_nom = document.getElementById('last-name');
+    var Input_commentaire = document.getElementById('message');
+    if (Input_prenom.value && Input_nom.value && Input_commentaire.value !="" ){
   document.getElementById('first-name').value="";
   document.getElementById('last-name').value="";
   document.getElementById('message').value="";
+}
 });
